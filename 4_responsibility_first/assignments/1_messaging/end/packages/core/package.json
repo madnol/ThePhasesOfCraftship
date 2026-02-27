@@ -1,0 +1,21 @@
+{
+  "name": "@dddforum/core",
+  "version": "1.0.0",
+  "description": "Core classes and utilities used throughout",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "npm run clean && esbuild ./src/index.ts --bundle --platform=node --target=node20 --outfile=./dist/index.js && npm run build:types",
+    "build:types": "tsc --declaration ./src/index.ts --emitDeclarationOnly --outDir ./dist --moduleResolution nodenext --module nodenext",
+    
+    "typecheck": "tsc --noEmit",
+    "test:unit": "jest -c jest.config.unit.ts"
+  },
+  "dependencies": {
+    "uuid": "^11.1.0"
+  }
+}

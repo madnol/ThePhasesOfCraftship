@@ -1,0 +1,23 @@
+{
+  "name": "@dddforum/outbox",
+  "description": "Outbox table to write events to",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "npm run clean && esbuild ./src/index.ts --bundle --platform=node --target=node20 --outfile=./dist/index.js",
+    "test": "jest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@dddforum/core": "*",
+    "@dddforum/database": "*"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

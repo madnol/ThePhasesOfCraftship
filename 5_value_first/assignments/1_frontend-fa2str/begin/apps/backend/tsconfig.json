@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "types": ["node", "jest", "express"],
+    "skipDefaultLibCheck": true,
+    "resolveJsonModule": true,
+    "typeRoots": [
+      "./src/types",
+      "./node_modules/@types"
+    ],
+  },
+  "include": [
+    "src/**/*",
+    "src/types/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+    "build"
+  ]
+}
+  

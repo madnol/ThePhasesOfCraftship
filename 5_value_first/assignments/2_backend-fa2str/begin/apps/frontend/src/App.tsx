@@ -1,0 +1,46 @@
+
+import "./App.css";
+import "react-toastify/dist/ReactToastify.css";
+import { BrowserRouter } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import { ErrorBoundary } from "./shared/error/errorBoundary";
+import { StoreProvider } from "./shared/store/storesContext";
+import { PresenterProvider } from "./shared/presenters/presentersProvider";
+import { RegisterPage } from "./pages/join/registerPage";
+import { HomePage } from "./pages/home/homePage";
+import { PostPage } from "./pages/post/postPage";
+import { presenters, stores } from "./main";
+import { SpinnerProvider } from "./shared/spinner/spinnerProvider";
+import { NavigationProvider } from "./shared/navigation/navigationProvider";
+import { ToastContainer } from "react-toastify";
+import { OnboardingPage } from "./pages/onboarding/onboardingPage";
+import { OnboardingPageContainer } from "./pages/onboarding/onboardingPageContainer";
+
+const App = () => {
+  return (
+    <ErrorBoundary>
+      <StoreProvider stores={stores}>
+        <SpinnerProvider>
+          <PresenterProvider presenters={presenters}>
+            <BrowserRouter>
+              <NavigationProvider>
+                <ToastContainer />
+                <Routes>
+                  {/* Public routes */}
+                  <Route path="/join" element={<RegisterPage />} />
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="/posts/:slug" element={<PostPage />} />
+                  <Route path="/onboarding" element={<OnboardingPageContainer>
+                    <OnboardingPage/>
+                  </OnboardingPageContainer>}/>
+                </Routes>
+              </NavigationProvider>
+            </BrowserRouter>
+          </PresenterProvider>
+        </SpinnerProvider>
+      </StoreProvider>
+    </ErrorBoundary>
+  );
+};
+
+export default App;

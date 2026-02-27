@@ -1,0 +1,9 @@
+import { Posts } from '@dddforum/api'
+import { PostDm } from "../domain/postDm";
+
+export interface IPostsStore {
+  postsDm: PostDm[];
+  getPosts(query?: Posts.Queries.GetPostsQuery): Promise<PostDm[]>;
+  create(input: Posts.Inputs.CreatePostInput): Promise<PostDm>;
+  getPostBySlug(slug: string): Promise<PostDm | null>;
+} 

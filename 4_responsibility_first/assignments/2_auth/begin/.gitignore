@@ -1,0 +1,9 @@
+node_modules
+build
+dist
+.vscode
+.env
+nats-data
+service-key.json
+.turbo
+.env.json

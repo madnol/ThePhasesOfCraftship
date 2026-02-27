@@ -1,0 +1,28 @@
+{
+  "name": "@dddforum/database",
+  "version": "1.0.0",
+  "description": "The database for dddforum",
+  "main": "index.js",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "clean": "rimraf dist",
+    "build": "npm run clean && tsc",
+    "generate": "ts-node scripts/generatePrisma.ts",
+    "migrate": "ts-node scripts/migratePrisma.ts",
+    "reset": "ts-node scripts/reset.ts",
+    "seed": "ts-node ./scripts/seed.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@dddforum/config": "*",
+    "@prisma/client": "6.4.1"
+  },
+  "devDependencies": {
+    "prisma": "6.4.1"
+  }
+}

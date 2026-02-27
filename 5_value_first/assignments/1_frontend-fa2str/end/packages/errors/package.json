@@ -1,0 +1,21 @@
+{
+  "name": "@dddforum/errors",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./application": "./src/application.ts",
+    "./server": "./src/server.ts",
+    "./custom": "./src/custom.ts"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "npm run clean && esbuild ./src/index.ts --bundle --platform=node --target=node20 --outfile=./dist/index.js && npm run build:types",
+    "build:types": "tsc --declaration ./src/index.ts --emitDeclarationOnly --outDir ./dist --moduleResolution nodenext --module nodenext",
+    "test": "jest",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "typeRoots": ["./node_modules/@types", "./src/@types"],
+    "baseUrl": ".",
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
+    "lib": ["ESNext"],
+    "strict": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "types": ["node", "jest"],
+    "paths": {
+      "@dddforum/api": ["./packages/api/src/index.ts"],
+      "@dddforum/bus": ["./packages/bus/src/index.ts"],
+      "@dddforum/core": ["./packages/core/src/index.ts"],
+      "@dddforum/config": ["./packages/config/src/index.ts"],
+      "@dddforum/database": ["./packages/database/src/index.ts"],
+      "@dddforum/errors": ["./packages/errors/src/index.ts"],
+      "@dddforum/outbox": ["./packages/outbox/src/index.ts"]
+    }
+  }
+}
