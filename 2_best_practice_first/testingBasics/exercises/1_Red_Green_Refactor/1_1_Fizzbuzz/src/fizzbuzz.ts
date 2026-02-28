@@ -1,6 +1,10 @@
 export const fizzbuzz = (value: number) => {
-    if (value % 15 === 0) return "FizzBuzz"
-    if (value % 3 === 0) return "Fizz"
-    if (value % 5 === 0) return "Buzz"
+    const isMultipleOfThree = value % 3 === 0
+    const isMultipleOfFive = value % 5 === 0
+
+    if (isMultipleOfThree && isMultipleOfFive) return "FizzBuzz"
+    if (isMultipleOfThree) return "Fizz"
+    if (isMultipleOfFive) return "Buzz"
+
     return `${value}`
 }
