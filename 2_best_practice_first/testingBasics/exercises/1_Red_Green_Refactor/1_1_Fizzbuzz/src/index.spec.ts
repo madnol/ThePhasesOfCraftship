@@ -1,35 +1,19 @@
 import { fizzbuzz } from "./fizzbuzz";
 
 describe("fizzbuzz", () => {
-    it('returns "1" for 1', () => {
-        expect(fizzbuzz(1)).toBe("1")
+    it.each([1, 2, 4])('returns "%i" for %i (not a multiple of 3 or 5)', (value) => {
+        expect(fizzbuzz(value)).toBe(value.toString())
     })
 
-    it('returns "Fizz" for 3', () => {
-        expect(fizzbuzz(3)).toBe("Fizz")
+    it.each([3, 6, 9])('returns "Fizz" for %i', (value) => {
+        expect(fizzbuzz(value)).toBe("Fizz")
     })
 
-    it('returns "Buzz" for 5', () => {
-        expect(fizzbuzz(5)).toBe("Buzz")
+    it.each([5, 10, 20])('returns "Buzz" for %i', (value) => {
+        expect(fizzbuzz(value)).toBe("Buzz")
     })
 
-    it('returns "FizzBuzz" for 15', () => {
+    it.each([15, 30, 45])('returns "FizzBuzz" for %i', (value) => {
         expect(fizzbuzz(15)).toBe("FizzBuzz")
-    })
-
-    it('returns "Fizz" for 6', () => {
-        expect(fizzbuzz(6)).toBe("Fizz")
-    })
-
-    it('returns "Buzz" for 10', () => {
-        expect(fizzbuzz(10)).toBe("Buzz")
-    })
-
-    it('returns "2" for 2', () => {
-        expect(fizzbuzz(2)).toBe("2")
-    })
-
-    it('returns "FizzBuzz" for 30', () => {
-        expect(fizzbuzz(30)).toBe("FizzBuzz")
     })
 });
