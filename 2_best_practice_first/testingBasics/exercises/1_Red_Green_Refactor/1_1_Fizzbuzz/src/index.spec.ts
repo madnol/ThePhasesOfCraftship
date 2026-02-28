@@ -20,4 +20,8 @@ describe("fizzbuzz", () => {
     it('returns "Fizz" for 6', () => {
         expect(fizzbuzz(6)).toBe("Fizz")
     })
+
+    it('returns "Buzz" for 10', () => {
+        expect(fizzbuzz(10)).toBe("Buzz")
+    })
 });
