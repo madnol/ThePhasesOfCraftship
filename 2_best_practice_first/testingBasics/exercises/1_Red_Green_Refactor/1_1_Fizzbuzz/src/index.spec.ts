@@ -16,4 +16,8 @@ describe("fizzbuzz", () => {
     it.each([15, 30, 45])('returns "FizzBuzz" for %i', (value) => {
         expect(fizzbuzz(15)).toBe("FizzBuzz")
     })
+
+    it('returns "the number should be among 1 and 100"  for -12', () => {
+        expect(() => fizzbuzz(-12)).toThrow("the number should be among 1 and 100")
+    })
 });
