@@ -12,4 +12,8 @@ describe('palindrome checker', () => {
     it('returns false for "Momx"', () => {
         expect(palindromeChecker("Momx")).toBeFalsy()
     })
+
+    it('returns false for "Never Odd or Even1"', () => {
+        expect(palindromeChecker("Never Odd or Even1")).toBeFalsy()
+    })
 })
