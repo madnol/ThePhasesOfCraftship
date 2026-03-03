@@ -4,7 +4,7 @@ import { palindromeChecker } from "."
 
 describe('palindrome checker', () => {
 
-    it.each(["mom", "Mom", "MoM", "xMomx", "Was It A Rat I Saw", "Never Odd or Even"])
+    it.each(["mom", "Mom", "MoM", "xMomx", "Was It A Rat I Saw", "Never Odd or Even", "1Never Odd or Even1"])
         ('returns true for "%s"', (value) => {
             expect(palindromeChecker(value)).toBeTruthy()
         })
