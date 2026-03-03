@@ -1,4 +1,4 @@
 export const palindromeChecker = (value: string) => {
-
-    return value.split("").reverse().join("").toLowerCase() === value.toLocaleLowerCase()
+    const reverse = value.split("").reverse().join("")
+    return reverse.toLowerCase() === value.toLowerCase()
 }
