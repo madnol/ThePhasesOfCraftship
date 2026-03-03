@@ -18,4 +18,8 @@ describe('palindrome checker', () => {
     it('returns false for "Momx"', () => {
         expect(palindromeChecker("Momx")).toBeFalsy()
     })
+
+    it('returns true for "xMomx"', () => {
+        expect(palindromeChecker("xMomx")).toBeTruthy()
+    })
 })
