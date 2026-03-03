@@ -20,4 +20,8 @@ describe("fizzbuzz", () => {
     it('returns "the number should be among 1 and 100"  for -12', () => {
         expect(() => fizzbuzz(-12)).toThrow("the number should be among 1 and 100")
     })
+
+    it('returns "the number should be among 1 and 100"  for 102', () => {
+        expect(() => fizzbuzz(200)).toThrow("the number should be among 1 and 100")
+    })
 });
