@@ -1,27 +1,28 @@
 import { PasswordValidator } from "./index"
 
+const INVALID_LENGTH = {
+  type: "InvalidLength",
+  message: "Must be between 5 and 15 characters long"
+}
+
 describe('password validator', () => {
 
-  it('knows that "Hello5" is between 5 and 15 characters long', () => {
-    let output = PasswordValidator.validate("Hello5")
-    expect(output.result).toBeTruthy()
-    expect(output.errors).toHaveLength(0)
-  })
+  describe('checking between 5 to 15 characters long', () => {
+    it.each([
+      ["Hello5", true, []],
+      ["Pwd1", false, [INVALID_LENGTH]],
+      ["thePhysical1234567", false, [INVALID_LENGTH]]
+    ])
+      ('knows that "%s" should return %s', (input, result, errors) => {
+        let output = PasswordValidator.validate(input)
 
-  it('knows that "Pwd1" is NOT between 5 and 15 characters long', () => {
-    let output = PasswordValidator.validate("Pwd1")
-    expect(output.result).toBeFalsy()
-    expect(output.errors).toHaveLength(1)
-    expect(output.errors[0].type).toEqual("InvalidLength")
-    expect(output.errors[0].message).toEqual("Must be between 5 and 15 characters long")
-  })
-
-  it('knows that "thePhysical1234567" is NOT between 5 and 15 characters long', () => {
-    let output = PasswordValidator.validate("thePhysical1234567")
-    expect(output.result).toBeFalsy()
-    expect(output.errors).toHaveLength(1)
-    expect(output.errors[0].type).toEqual("InvalidLength")
-    expect(output.errors[0].message).toEqual("Must be between 5 and 15 characters long")
+        expect(output.result).toBe(result)
+        expect(output.errors).toHaveLength(errors.length)
+        if (errors.length) {
+          expect(output.errors[0].type).toEqual(errors[0].type)
+          expect(output.errors[0].message).toEqual(errors[0].message)
+        }
+      })
   })
 })
 
