@@ -15,6 +15,14 @@ describe('password validator', () => {
     expect(output.errors[0].type).toEqual("InvalidLength")
     expect(output.errors[0].message).toEqual("Must be between 5 and 15 characters long")
   })
+
+  it('knows that "thePhysical1234567" is NOT between 5 and 15 characters long', () => {
+    let output = PasswordValidator.validate("thePhysical1234567")
+    expect(output.result).toBeFalsy()
+    expect(output.errors).toHaveLength(1)
+    expect(output.errors[0].type).toEqual("InvalidLength")
+    expect(output.errors[0].message).toEqual("Must be between 5 and 15 characters long")
+  })
 })
 
 
