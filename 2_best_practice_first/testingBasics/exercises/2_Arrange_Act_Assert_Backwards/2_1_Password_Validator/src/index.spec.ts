@@ -24,6 +24,13 @@ describe('password validator', () => {
         }
       })
   })
+
+  it('knows "Notapassword1" contains at least one digit', () => {
+    let output = PasswordValidator.validate("Notapassword1")
+
+    expect(output.result).toBeTruthy()
+    expect(output.errors).toHaveLength(0)
+  })
 })
 
 
