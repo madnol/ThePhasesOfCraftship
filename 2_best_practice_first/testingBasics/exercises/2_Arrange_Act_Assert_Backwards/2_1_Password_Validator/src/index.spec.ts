@@ -32,6 +32,13 @@ describe('password validator', () => {
     expect(output.errors).toHaveLength(0)
   })
 
+  it('knows "Zetman0" contains at least one digit', () => {
+    let output = PasswordValidator.validate("Notapassword1")
+
+    expect(output.result).toBeTruthy()
+    expect(output.errors).toHaveLength(0)
+  })
+
   it('knows "maxwellTheBe" does not contains any digit', () => {
     let output = PasswordValidator.validate("maxwellTheBe")
 
@@ -40,6 +47,8 @@ describe('password validator', () => {
     expect(output.errors[0].type).toEqual("NoDigitIncluded")
     expect(output.errors[0].message).toEqual('Must have at least one digit')
   })
+
+
 })
 
 
