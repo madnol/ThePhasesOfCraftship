@@ -5,10 +5,14 @@ const INVALID_LENGTH = {
   message: "Must be between 5 and 15 characters long"
 }
 
-
 const NO_DIGIT_INCLUDED = {
   type: "NoDigitIncluded",
   message: "Must have at least one digit"
+}
+
+const MISSING_UPPERCASE_CHARACTER = {
+  type: "MissingUppercaseCharacter",
+  message: "Must have at least one upper case letter",
 }
 
 describe('password validator', () => {
@@ -49,32 +53,24 @@ describe('password validator', () => {
       })
   })
 
+  describe("checking for at least one uppercase character", () => {
+    it.each([
+      ["Without2", true, []],
+      ["maxwell1_c", false, [MISSING_UPPERCASE_CHARACTER]],
+      ["nfnadji3", false, [MISSING_UPPERCASE_CHARACTER]],
+    ])
+      ("knows %s should return %s", (input, result, errors) => {
+        let output = PasswordValidator.validate(input)
 
-  it('knows "Without2" contains at least one uppercase character', () => {
-    let output = PasswordValidator.validate("Without2")
-
-    expect(output.result).toBeTruthy()
-    expect(output.errors).toHaveLength(0)
+        expect(output.result).toBe(result)
+        expect(output.errors).toHaveLength(errors.length)
+        if (errors.length) {
+          expect(output.errors[0].type).toEqual(errors[0].type)
+          expect(output.errors[0].message).toEqual(errors[0].message)
+        }
+      })
   })
 
-
-  it('knows "maxwell1_c" does not contains any uppercase character', () => {
-    let output = PasswordValidator.validate("maxwell1_c")
-
-    expect(output.result).toBeFalsy()
-    expect(output.errors).toHaveLength(1)
-    expect(output.errors[0].type).toEqual("MissingUppercaseCharacter")
-    expect(output.errors[0].message).toEqual("Must have at least one upper case letter")
-  })
-
-  it('knows "nfnadji3" does not contains any uppercase character', () => {
-    let output = PasswordValidator.validate("nfnadji3")
-
-    expect(output.result).toBeFalsy()
-    expect(output.errors).toHaveLength(1)
-    expect(output.errors[0].type).toEqual("MissingUppercaseCharacter")
-    expect(output.errors[0].message).toEqual("Must have at least one upper case letter")
-  })
 })
 
 
