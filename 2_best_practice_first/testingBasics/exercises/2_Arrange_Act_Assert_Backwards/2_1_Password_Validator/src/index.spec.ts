@@ -31,6 +31,15 @@ describe('password validator', () => {
     expect(output.result).toBeTruthy()
     expect(output.errors).toHaveLength(0)
   })
+
+  it('knows "maxwellTheBe" does not contains any digit', () => {
+    let output = PasswordValidator.validate("maxwellTheBe")
+
+    expect(output.result).toBeFalsy()
+    expect(output.errors).toHaveLength(1)
+    expect(output.errors[0].type).toEqual("NoDigitIncluded")
+    expect(output.errors[0].message).toEqual('Must have at least one digit')
+  })
 })
 
 
