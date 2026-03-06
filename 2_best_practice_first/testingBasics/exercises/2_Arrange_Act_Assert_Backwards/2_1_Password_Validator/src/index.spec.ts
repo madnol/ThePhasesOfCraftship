@@ -49,6 +49,13 @@ describe('password validator', () => {
       })
   })
 
+
+  it('knows "Without2" contains at least one uppercase character', () => {
+    let output = PasswordValidator.validate("Without2")
+
+    expect(output.result).toBeTruthy()
+    expect(output.errors).toHaveLength(0)
+  })
 })
 
 
