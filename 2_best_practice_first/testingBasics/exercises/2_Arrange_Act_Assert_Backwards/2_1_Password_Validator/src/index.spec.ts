@@ -56,6 +56,16 @@ describe('password validator', () => {
     expect(output.result).toBeTruthy()
     expect(output.errors).toHaveLength(0)
   })
+
+
+  it('knows "maxwell1_c" does not contains any uppercase character', () => {
+    let output = PasswordValidator.validate("maxwell1_c")
+
+    expect(output.result).toBeFalsy()
+    expect(output.errors).toHaveLength(1)
+    expect(output.errors[0].type).toEqual("MissingUppercaseCharacter")
+    expect(output.errors[0].message).toEqual("Must have at least one upper case letter")
+  })
 })
 
 

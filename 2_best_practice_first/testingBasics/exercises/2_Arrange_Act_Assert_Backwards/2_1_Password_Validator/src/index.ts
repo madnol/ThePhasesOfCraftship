@@ -17,6 +17,7 @@ export class PasswordValidator {
 
         const isBetweenFiveandFifty = input.length >= 5 && input.length <= 15
         const isWithDigits = /\d/.test(input)
+        const isWithUppercase = /[A-Z]/.test(input)
 
         if (!isBetweenFiveandFifty) {
             errors.push({
@@ -29,6 +30,13 @@ export class PasswordValidator {
             errors.push({
                 type: 'NoDigitIncluded',
                 message: 'Must have at least one digit'
+            })
+        }
+
+        if (!isWithUppercase) {
+            errors.push({
+                type: "MissingUppercaseCharacter",
+                message: "Must have at least one upper case letter",
             })
         }
 
