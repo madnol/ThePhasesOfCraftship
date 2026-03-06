@@ -66,6 +66,15 @@ describe('password validator', () => {
     expect(output.errors[0].type).toEqual("MissingUppercaseCharacter")
     expect(output.errors[0].message).toEqual("Must have at least one upper case letter")
   })
+
+  it('knows "nfnadji3" does not contains any uppercase character', () => {
+    let output = PasswordValidator.validate("nfnadji3")
+
+    expect(output.result).toBeFalsy()
+    expect(output.errors).toHaveLength(1)
+    expect(output.errors[0].type).toEqual("MissingUppercaseCharacter")
+    expect(output.errors[0].message).toEqual("Must have at least one upper case letter")
+  })
 })
 
 
