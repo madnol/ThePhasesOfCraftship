@@ -71,6 +71,15 @@ describe('password validator', () => {
       })
   })
 
+  it('knows "bad1" has multiple errors', () => {
+    let output = PasswordValidator.validate("bad1")
+
+    expect(output.result).toBeFalsy()
+    expect(output.errors).toHaveLength(2)
+    expect(output.errors).toContainEqual(INVALID_LENGTH)
+    expect(output.errors).toContainEqual(MISSING_UPPERCASE_CHARACTER)
+  })
+
 })
 
 
