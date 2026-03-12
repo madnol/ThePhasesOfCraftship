@@ -11,4 +11,7 @@ describe('stats calculator', () => {
     it('report an error when the sequence is []', () => {
         expect(() => statsCalculator([])).toThrow("invalidInput")
     })
+    it('return {min: 3, max: 3, elements: 2, average: 3.0} when the sequence is [3,3]', () => {
+        expect(statsCalculator([3, 3])).toEqual({ min: 3, max: 3, elements: 2, average: 3.0 })
+    })
 })
