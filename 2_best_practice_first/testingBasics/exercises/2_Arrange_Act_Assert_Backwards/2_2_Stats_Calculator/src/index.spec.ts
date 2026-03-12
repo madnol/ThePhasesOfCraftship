@@ -7,6 +7,7 @@ describe('stats calculator', () => {
         [[3], { min: 3, max: 3, elements: 1, average: 3.0 }],
         [[3, 3], { min: 3, max: 3, elements: 2, average: 3.0 }],
         [[3, 9], { min: 3, max: 9, elements: 2, average: 6.0 }],
+        [[-10, -3, -7], { min: -10, max: -3, elements: 3, average: -6.666666666666667 }]
     ])('for the sequence %s returns %s', (sequence, output) => {
         expect(statsCalculator(sequence)).toEqual(output)
     })
