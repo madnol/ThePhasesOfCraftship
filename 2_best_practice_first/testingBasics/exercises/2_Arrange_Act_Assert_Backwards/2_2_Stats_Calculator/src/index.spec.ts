@@ -14,4 +14,7 @@ describe('stats calculator', () => {
     it('return {min: 3, max: 3, elements: 2, average: 3.0} when the sequence is [3,3]', () => {
         expect(statsCalculator([3, 3])).toEqual({ min: 3, max: 3, elements: 2, average: 3.0 })
     })
+    it('return {min: 3, max: 9, elements: 2, average: 6.0} when the sequence is [3,9]', () => {
+        expect(statsCalculator([3, 9])).toEqual({ min: 3, max: 9, elements: 2, average: 6.0 })
+    })
 })
